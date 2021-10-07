@@ -1,0 +1,35 @@
+<!-- CS340 Project -->
+<!-- Section    : 401-->
+<!-- Team Member: Alice Li & Chang Li-->
+<!-- Class Update Page -->
+<html>
+
+    <body>
+    <div class = "page-header">
+        <h1>Fantastic High School Information Management</h1>
+    </div>
+    
+        <center>
+        <h1>Update {{class.class_name}} :</h1>
+        <br />
+        <br />
+        
+        <div>
+        <form id="update-class" action="/classes" method="post">
+            Class name: <input type="text" name="class_name" value="{{class.class_name}}"><br>
+            Department: <input type="text" name="department" value="{{class.department}}"><br>
+            Teacher: <select name="teacher_id" id="teacher-selector"> 
+                        {{#each teacher}}
+                            <option value="{{id}}">{{teacher_name}}</option>
+                        {{/each}}
+                    </select><br>
+        </form>
+
+        </br>
+        </br>
+        <button onclick="updateClass({{class.id}})">Update</button>
+        <script defer>selectTeacher({{class.teacher_id}});</script>
+        </div>
+        </center>
+    </body>
+</html>

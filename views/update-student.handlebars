@@ -1,0 +1,30 @@
+<!-- CS340 Project -->
+<!-- Section    : 401-->
+<!-- Team Member: Alice Li & Chang Li-->
+<!-- Student Update Page -->
+<html>
+    
+<body>
+    <div class = "page-header">
+        <h1>Fantastic High School Information Management</h1>
+    </div>
+        <center>
+            
+            <h1>Update {{person.first_name}} {{person.last_name}}:</h1>
+            
+        <br />
+        <br />
+        <div>
+        <form id="update-student" action="/students" method="post">
+            First name: <input type="text" name="first_name" value="{{person.first_name}}"><br>
+            Last name: <input type="text" name="last_name" value="{{person.last_name}}"><br>
+        </form>
+        
+        </br>
+        </br>
+        <button onclick="updatePerson({{person.id}})">Update</button>
+
+        </div>
+        </center>
+    </body>
+</html>

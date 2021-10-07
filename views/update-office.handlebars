@@ -1,0 +1,27 @@
+<!-- CS340 Project -->
+<!-- Section    : 401-->
+<!-- Team Member: Alice Li & Chang Li-->
+<!-- Office Update Page -->
+<html>
+    
+<body>
+    <div class = "page-header">
+        <h1>Fantastic High School Information Management</h1>
+    </div>
+        <center>
+        <h1>Update Office ID {{office.id}} in {{office.building_name}} :</h1>
+        </br>
+        </br>
+        <div>
+        <form id="update-office" action="/offices" method="post">
+            Building Name: <input type="text" name="building_name" value="{{office.building_name}}"><br>
+            Zipcode: <input type="number" name="zipcode" value="{{office.zipcode}}"><br>
+        </form>
+        </br>
+        </br>
+        <button onclick="updateOffice({{office.id}})">Update</button>
+
+        </div>
+        </center>
+    </body>
+</html>

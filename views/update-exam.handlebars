@@ -1,0 +1,39 @@
+<!-- CS340 Project -->
+<!-- Section    : 401-->
+<!-- Team Member: Alice Li & Chang Li-->
+<!-- Exam Update Page -->
+<html>
+    
+<body>
+    <div class = "page-header">
+        <h1>Fantastic High School Information Management</h1>
+    </div>
+        <center>
+        <h1>Update Class ID {{exam.class_id}} {{exam.exam_type}} on {{exam.exam_date}}:</h1>
+        
+        <br />
+        <br />
+        <div>
+        <form id="update-exam" action="/exams" method="post">
+            Exam Type :<select id="exam_type" name="exam_type">
+                        <option value="Quiz">Quiz</option>
+                        <option value="Midterm">Midterm</option>
+                        <option value="Final">Final</option>
+                    </select>
+                    </br>
+            Class : <select name="class_id" id="class-selector"> 
+                        {{#each class}}
+                            <option value="{{id}}">{{class_name}}</option>
+                        {{/each}}
+                    </select><br>
+            Exam Date: <input type="date" name="exam_date" id="exam_date"><br>
+        </form>
+
+        </br>
+        </br>
+        <button onclick="updateExam({{exam.id}})">Update</button>
+        <script defer>selectClass({{exam.class_id}});</script>
+        </div>
+        </center>
+    </body>
+</html>

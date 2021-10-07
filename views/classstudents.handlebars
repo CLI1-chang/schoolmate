@@ -1,0 +1,124 @@
+<!-- CS340 Project-->
+<!-- Section    : 401-->
+<!-- Team Member: Alice Li & Chang Li-->
+<!-- Enroll Info Page -->
+
+<html lang="en">
+{{#each foo}}
+{{this}}
+{{/each}}
+
+<body>
+    <div class = "page-header">
+        <h1>Fantastic High School Information Management</h1>
+    </div>
+    
+
+    <!--Reference: https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Navigation Bars -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/"> Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/students"> Student Info </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/classstudents"> Class Enroll Info </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/classes"> Class Info </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/exams"> Exam Info </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/teachers"> Teacher Info </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/offices"> Office Info </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/search"> Search Class </a>
+            </li>
+        </ul>
+    </nav>
+    
+    <!-- Info Form -->
+    <!-- Reference: https://www.w3schools.com/howto/howto_css_contact_form.asp-->
+    <center>
+    <h1>Students Enroll Info</h1>
+        <div class="container">
+            <div class="form">
+            <form id="addenroll" action="/classstudents" method="post">
+                Student :<select name="student_id"> 
+                            {{#each student}}
+                                <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                        </select><br>
+                Class :<select name="class_id"> 
+                            {{#each class}}
+                                <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                        </select><br>
+                
+                <input type="submit" value="Add">
+                
+            </form>
+            </div>
+            <br />
+            <h4>IF you want to update any enrollment, please delete the wrong enrollment and enter a new one.</h4>
+            <br />
+            <div class="tab tab-2">
+                <h3>Current Enroll:</h3>
+                <table id="table" border="1">
+                    <thead>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Class ID</th>
+                        <th>Class Name</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                        {{#each classstudents}} 
+                        <tr> 
+                            <td>{{sid}}</td>
+                            <td>{{student_name}}</td>
+                            <td>{{cid}}</td>
+                            <td>{{class_name}}</td>
+                            <td><button onclick="deleteEnroll({{sid}},{{cid}})">Delete</button></td>
+                        </tr> 
+                        {{/each}} 
+                    </tbody>
+                </table>
+
+                
+            </div>
+        </div>
+    </center>
+
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+
+    <!-- Footer with Copyright -->
+    <footer class="page-footer font-small blue">
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a> Alice Li and Chang Li</a>
+    </div>
+    </footer>
+
+    <div class="footer"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</body>
+
+</html>
